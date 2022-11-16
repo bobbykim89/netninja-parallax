@@ -1,11 +1,13 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import Logo from '@/components/icons/Logo.vue'
 import Header from '@/components/Header.vue'
+import ImageSlider from '@/components/ImageSlider.vue'
 </script>
 
 <template>
   <main
-    class="bg-bkg text-white selection:bg-accent selection:text-bkg overflow-hidden"
+    class="bg-bkg text-base text-white selection:bg-accent selection:text-bkg overflow-hidden"
   >
     <div id="parallax">
       <nav
@@ -47,6 +49,8 @@ import Header from '@/components/Header.vue'
             </p>
           </div>
         </div>
+        <!-- slider-component -->
+        <image-slider></image-slider>
       </section>
     </div>
   </main>

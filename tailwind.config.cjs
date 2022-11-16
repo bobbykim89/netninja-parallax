@@ -3,6 +3,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,vue}'],
   theme: {
     extend: {
+      screens: {
+        xs: '425px',
+      },
       colors: {
         bkg: '#171819',
         muted: '#c9cbcf',
