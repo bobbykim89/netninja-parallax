@@ -176,7 +176,7 @@ onMounted(() => {
         <!-- photos -->
         <div
           data-slide
-          class="relative w-full xs:w-auto flex-grow flex-shrink-0 xs:basis-96 pr-4"
+          class="relative w-full xs:w-auto flex-grow flex-shrink-0 xs:basis-96 pr-4 last:pr-0"
           ref="slides"
           v-for="(slide, index) in sliderInfo"
           :key="index"
@@ -185,6 +185,7 @@ onMounted(() => {
             :src="slide.src"
             :alt="slide.alt"
             class="object-cover h-full [@media(hover:hover)]:grayscale hover:grayscale-0 transition-all peer"
+            loading="lazy"
           />
           <p
             class="absolute bottom-4 left-4 px-4 py-2 bg-bkg font-bold text-lg pointer-events-none tracking-wide [@media(hover:hover)]:opacity-0 peer-hover:opacity-100 transition-opacity"
