@@ -5,6 +5,37 @@ import Header from '@/components/Header.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 import ImageSlider from '@/components/ImageSlider.vue'
 import EmailForm from '@/components/EmailForm.vue'
+
+const headLine = ref()
+
+// Fade up observer
+const fadeUpObserverCallback = (elsToWatch) => {
+  elsToWatch.forEach((el) => {
+    if (el.isIntersecting) {
+      el.target.classList.add('faded')
+      fadeUpObserver.unobserve(el.target)
+      el.target.addEventListener(
+        'transitioned',
+        () => {
+          el.target.classList.remove('fade-up', 'faded')
+        },
+        { once: true }
+      )
+    }
+  })
+}
+
+const fadeUpObserverOptions = {
+  threshold: 0.6,
+}
+
+const fadeUpObserver = new IntersectionObserver(
+  fadeUpObserverCallback,
+  fadeUpObserverOptions
+)
+document.querySelectorAll('.fade-up').forEach((item) => {
+  fadeUpObserver.observe(item)
+})
 </script>
 
 <template>
@@ -33,7 +64,7 @@ import EmailForm from '@/components/EmailForm.vue'
       >
         <div
           aria-labelledby="headline"
-          class="container grid gap-4 text-center max-w-prose"
+          class="container grid gap-4 text-center max-w-prose fade-up"
         >
           <div>
             <small
@@ -64,10 +95,12 @@ import EmailForm from '@/components/EmailForm.vue'
             src="../assets/images/map.png"
             alt="Map"
             width="400"
-            class="grow md:flex-1"
+            class="grow md:flex-1 fade-up"
             loading="lazy"
           />
-          <div class="grid gap-4 text-center md:text-left grow md:flex-1">
+          <div
+            class="grid gap-4 text-center md:text-left grow md:flex-1 fade-up"
+          >
             <div class="relative">
               <div
                 class="hidden md:block absolute w-8 bg-accent/10 -left-4 h-full"

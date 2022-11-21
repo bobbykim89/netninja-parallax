@@ -60,8 +60,8 @@ onMounted(() => {
 
 <template>
   <section
-    aria-labelledby="map"
-    class="container grid gap-4 text-center max-w-prose"
+    aria-labelledby="cta"
+    class="container grid gap-4 text-center max-w-prose fade-up"
   >
     <div class="grid gap-4 text-center md:text-left grow md:flex-1">
       <div>

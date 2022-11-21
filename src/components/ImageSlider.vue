@@ -115,7 +115,7 @@ onMounted(() => {
   <section>
     <div
       aria-labelledby="slider"
-      class="container grid gap-4 text-center sm:text-left"
+      class="container grid gap-4 text-center sm:text-left fade-up"
     >
       <div class="relative">
         <div
